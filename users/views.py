@@ -29,7 +29,7 @@ def login(request, **kwargs):
          'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=24 * 60 * 60)
          },
         settings.SECRET_KEY,
-        algorithm="HS256")
+        algorithm="HS256").decode('utf-8')
 
     return JsonResponse({'status': True, 'token': token})
 
